@@ -31,6 +31,15 @@ test {
     useJUnitPlatform()
 }
 
+task stage(type: Copy, dependsOn: ['build', 'clean', 'jar']) {
+    from 'build/libs/DiscordVoiceChannelStatusEvent-1.0-SNAPSHOT.jar'
+    into project.rootDir
+    rename {
+        'DiscordVoiceChannelStatusEvent-1.0-SNAPSHOT.jar'
+    }
+}
+stage.mustRunAfter(clean)
+
 jar {
     manifest {
         attributes 'Main-Class': 'kr.sprtms16.Main'
