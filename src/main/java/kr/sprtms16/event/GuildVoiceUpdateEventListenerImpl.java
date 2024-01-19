@@ -1,11 +1,11 @@
-package org.example.event;
+package kr.sprtms16.event;
 
+import kr.sprtms16.common.CommonUtils;
+import kr.sprtms16.common.MemberIOStatus;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.example.common.CommonUtils;
-import org.example.common.MemberIOStatus;
 
 @Slf4j
 public class GuildVoiceUpdateEventListenerImpl extends ListenerAdapter {

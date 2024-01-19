@@ -1,4 +1,4 @@
-package org.example.common;
+package kr.sprtms16.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DiscordVoiceChannalStatusEvent.iml" filepath="$PROJECT_DIR$/DiscordVoiceChannalStatusEvent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DiscordVoiceChannalStatusEvent.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DiscordVoiceChannalStatusEvent.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DiscordVoiceChannelStatusEvent.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DiscordVoiceChannelStatusEvent.main.iml" />
     </modules>
   </component>
 </project>

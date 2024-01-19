@@ -1,4 +1,4 @@
-package org.example.common;
+package kr.sprtms16.common;
 
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.Member;
