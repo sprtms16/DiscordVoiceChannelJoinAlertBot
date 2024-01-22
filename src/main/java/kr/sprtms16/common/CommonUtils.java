@@ -13,6 +13,6 @@ public class CommonUtils {
     }
 
     public static void sendJoinVoiceChannelMessage(Member member, MemberIOStatus status, AudioChannelUnion audioChannelUnion, TextChannel textChannel) {
-        textChannel.sendMessage(String.format("%s님 %s %s에서 %s", member.getEffectiveName(), status.getMessage(), audioChannelUnion.getName(), status.getStatusMessage())).queue();
+        textChannel.sendMessageFormat("%s님 %s %s 에서 %s", member.getEffectiveName(), status.getMessage(), audioChannelUnion.getAsMention(), status.getStatusMessage()).queue();
     }
 }

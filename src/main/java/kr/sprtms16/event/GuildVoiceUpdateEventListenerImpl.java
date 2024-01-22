@@ -18,10 +18,12 @@ public class GuildVoiceUpdateEventListenerImpl extends ListenerAdapter {
 
     @Override
     public void onGuildVoiceUpdate(GuildVoiceUpdateEvent event) {
-        if (event.getChannelJoined() != null) {
-            CommonUtils.sendJoinVoiceChannelMessage(event.getEntity(), MemberIOStatus.IN, event.getChannelJoined(), textChannel);
-        } else if (event.getChannelLeft() != null) {
-            CommonUtils.sendJoinVoiceChannelMessage(event.getEntity(), MemberIOStatus.OUT, event.getChannelLeft(), textChannel);
+        if(textChannel.getGuild().equals(event.getGuild())) {
+            if (event.getChannelJoined() != null) {
+                CommonUtils.sendJoinVoiceChannelMessage(event.getEntity(), MemberIOStatus.IN, event.getChannelJoined(), textChannel);
+            } else if (event.getChannelLeft() != null) {
+                CommonUtils.sendJoinVoiceChannelMessage(event.getEntity(), MemberIOStatus.OUT, event.getChannelLeft(), textChannel);
+            }
         }
     }
 

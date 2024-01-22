@@ -14,16 +14,28 @@ public class SettingTextChannelEventListenerImpl extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if ("set".equals(event.getName()) && event.getChannel().getType().isMessage()) {
-            TextChannel textChannel = event.getChannel().asTextChannel();
-            if(textChannelEventListener.containsKey(textChannel)) {
+            TextChannel textChannel = event
+                    .getInteraction()
+                    .getOption(
+                            "target",
+                            () -> event.getChannel().asTextChannel(),
+                            optionMapping -> optionMapping.getAsChannel().asTextChannel()
+                    );
+            if (textChannelEventListener.containsKey(textChannel)) {
                 event.reply("이미 알림이 등록되어있습니다.").complete();
             } else {
                 textChannelEventListener.put(textChannel, new GuildVoiceUpdateEventListenerImpl(textChannel));
                 event.getJDA().addEventListener(textChannelEventListener.get(textChannel));
                 event.reply("이제 이 채널에서 알림이 울립니다.").complete();
             }
-        } else if("unset".equals(event.getName()) && event.getChannel().getType().isMessage()) {
-            TextChannel textChannel = event.getChannel().asTextChannel();
+        } else if ("unset".equals(event.getName()) && event.getChannel().getType().isMessage()) {
+            TextChannel textChannel = event
+                    .getInteraction()
+                    .getOption(
+                            "target",
+                            () -> event.getChannel().asTextChannel(),
+                            optionMapping -> optionMapping.getAsChannel().asTextChannel()
+                    );
             if (textChannelEventListener.containsKey(textChannel)) {
                 event.getJDA().removeEventListener(textChannelEventListener.remove(textChannel));
                 event.reply("이제 이 채널에서 알림이 울리지 않습니다.").complete();
